@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://www.g42cloud.com/"><img style="background-color:black;" width="450px" height="102px" src="https://auth.g42cloud.com//authui/20220614193554/public/custom/images/logo.svg"></a>
+<a href="https://www.g42cloud.com/"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Group_42_Logo.jpg"></a>
 </p>
 
 <h1 align="center">G42 Cloud Go Software Development Kit (Go SDK)</h1>
@@ -31,8 +31,8 @@ go get github.com/g42cloud-sdk/g42cloud-sdk-go
 ## Code Example
 
 - The following example shows how to query a list of VPCs in a specific region, you need to substitute your
-  real `{service} "github.com/g42cloud-sdk/g42cloud-sdk-go/{service}/{version}"`
-  for `vpc "github.com/g42cloud-sdk/g42cloud-sdk-go/vpc/v2"` in actual use, and initialize the client
+  real `{service} "github.com/g42cloud-sdk/g42cloud-sdk-go/services/{service}/{version}"`
+  for `vpc "github.com/g42cloud-sdk/g42cloud-sdk-go/services/vpc/v2"` in actual use, and initialize the client
   as `{service}.New{Service}Client`.
 - Substitute the values for `{your ak string}`, `{your sk string}`, `{your endpoint string}` and `{your project id}`.
 
@@ -41,11 +41,11 @@ package main
 
 import (
     "fmt"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-    "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/httphandler"
-    vpc "github.com/g42cloud-sdk/g42cloud-sdk-go/vpc/v2"
-    "github.com/g42cloud-sdk/g42cloud-sdk-go/v2/model"
+    "github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth/basic"
+    "github.com/g42cloud-sdk/g42cloud-sdk-go/core/config"
+    "github.com/g42cloud-sdk/g42cloud-sdk-go/core/httphandler"
+    vpc "github.com/g42cloud-sdk/g42cloud-sdk-go/services/vpc/v2"
+    "github.com/g42cloud-sdk/g42cloud-sdk-go/services/vpc/v2/model"
     "net/http"
 )
 
@@ -118,7 +118,7 @@ the [CHANGELOG.md](https://github.com/g42cloud-sdk/g42cloud-sdk-go/blob/master/C
 #### 1.1 Default Configuration [:top:](#user-manual-top)
 
 ``` go
-import "github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
+import "github.com/g42cloud-sdk/g42cloud-sdk-go/core/config"
 
 // Use default configuration
 httpConfig := config.DefaultHttpConfig()
@@ -199,14 +199,6 @@ globalCredentials := global.NewCredentialsBuilder().
     WithDomainId(domainId).
     Build()
 ```
-
-**Notice**:
-
-- projectId/domainId supports **automatic acquisition**, if you want to use this
-  feature, you need to provide the ak and sk of your account and the id of the region, and then build your client
-  instance with method `WithRegion()`, detailed example could refer
-  to [3.2  Initialize client with specified Region](#32-initialize-the-serviceclient-with-specified-region-recommended-top)
-  .
 
 #### 2.2 Use Temporary AK&SK [:top:](#user-manual-top)
 
@@ -350,11 +342,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth/basic"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/def"
 
-	service "github.com/g42cloud-sdk/g42cloud-sdk-go/service/v1"
-	"github.com/g42cloud-sdk/g42cloud-sdk-go/service/v1/model"
+	service "github.com/g42cloud-sdk/g42cloud-sdk-go/services/service/v1"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/services/service/v1/model"
 )
 
 func uploadAndDownloadFile(client *service.ServiceClient) {

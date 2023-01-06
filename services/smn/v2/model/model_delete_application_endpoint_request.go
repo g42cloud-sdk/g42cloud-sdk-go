@@ -1,0 +1,20 @@
+package model
+
+import (
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/utils"
+
+	"strings"
+)
+
+type DeleteApplicationEndpointRequest struct {
+	EndpointUrn string `json:"endpoint_urn"`
+}
+
+func (o DeleteApplicationEndpointRequest) String() string {
+	data, err := utils.Marshal(o)
+	if err != nil {
+		return "DeleteApplicationEndpointRequest struct{}"
+	}
+
+	return strings.Join([]string{"DeleteApplicationEndpointRequest", string(data)}, " ")
+}

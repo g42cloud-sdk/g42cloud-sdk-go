@@ -1,0 +1,22 @@
+package model
+
+import (
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/utils"
+
+	"strings"
+)
+
+type AssociateVaultPolicyRequest struct {
+	VaultId string `json:"vault_id"`
+
+	Body *VaultAssociate `json:"body,omitempty"`
+}
+
+func (o AssociateVaultPolicyRequest) String() string {
+	data, err := utils.Marshal(o)
+	if err != nil {
+		return "AssociateVaultPolicyRequest struct{}"
+	}
+
+	return strings.Join([]string{"AssociateVaultPolicyRequest", string(data)}, " ")
+}

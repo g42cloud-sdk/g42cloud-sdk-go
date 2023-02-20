@@ -9,7 +9,7 @@ import (
 type VaultAssociate struct {
 	DestinationVaultId *string `json:"destination_vault_id,omitempty"`
 
-	PolicyId *string `json:"policy_id,omitempty"`
+	PolicyId string `json:"policy_id"`
 
 	AddPolicyIds *[]string `json:"add_policy_ids,omitempty"`
 }

@@ -65,6 +65,7 @@ type CreateImageRequestBodyTypeEnum struct {
 	BMS            CreateImageRequestBodyType
 	FUSION_COMPUTE CreateImageRequestBodyType
 	IRONIC         CreateImageRequestBodyType
+	ISO_IMAGE      CreateImageRequestBodyType
 }
 
 func GetCreateImageRequestBodyTypeEnum() CreateImageRequestBodyTypeEnum {
@@ -80,6 +81,9 @@ func GetCreateImageRequestBodyTypeEnum() CreateImageRequestBodyTypeEnum {
 		},
 		IRONIC: CreateImageRequestBodyType{
 			value: "Ironic",
+		},
+		ISO_IMAGE: CreateImageRequestBodyType{
+			value: "IsoImage",
 		},
 	}
 }

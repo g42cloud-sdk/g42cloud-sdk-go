@@ -5,7 +5,10 @@ import (
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/region"
 )
 
-var AE_AD_1 = region.NewRegion("ae-ad-1", "https://cbr.ae-ad-1.g42cloud.com")
+var (
+	AE_AD_1 = region.NewRegion("ae-ad-1",
+		"https://cbr.ae-ad-1.g42cloud.com")
+)
 
 var staticFields = map[string]*region.Region{
 	"ae-ad-1": AE_AD_1,

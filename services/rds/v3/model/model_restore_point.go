@@ -13,7 +13,7 @@ type RestorePoint struct {
 
 	BackupId *string `json:"backup_id,omitempty"`
 
-	RestoreTime *int32 `json:"restore_time,omitempty"`
+	RestoreTime *int64 `json:"restore_time,omitempty"`
 
 	DatabaseName map[string]string `json:"database_name,omitempty"`
 }

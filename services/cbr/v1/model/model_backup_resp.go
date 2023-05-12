@@ -21,7 +21,7 @@ type BackupResp struct {
 
 	Id string `json:"id"`
 
-	ImageType BackupRespImageType `json:"image_type"`
+	ImageType string `json:"image_type"`
 
 	Name string `json:"name"`
 
@@ -39,7 +39,7 @@ type BackupResp struct {
 
 	ResourceSize int32 `json:"resource_size"`
 
-	ResourceType BackupRespResourceType `json:"resource_type"`
+	ResourceType string `json:"resource_type"`
 
 	Status BackupRespStatus `json:"status"`
 
@@ -63,90 +63,6 @@ func (o BackupResp) String() string {
 	}
 
 	return strings.Join([]string{"BackupResp", string(data)}, " ")
-}
-
-type BackupRespImageType struct {
-	value string
-}
-
-type BackupRespImageTypeEnum struct {
-	BACKUP      BackupRespImageType
-	REPLICATION BackupRespImageType
-}
-
-func GetBackupRespImageTypeEnum() BackupRespImageTypeEnum {
-	return BackupRespImageTypeEnum{
-		BACKUP: BackupRespImageType{
-			value: "backup",
-		},
-		REPLICATION: BackupRespImageType{
-			value: "replication",
-		},
-	}
-}
-
-func (c BackupRespImageType) Value() string {
-	return c.value
-}
-
-func (c BackupRespImageType) MarshalJSON() ([]byte, error) {
-	return utils.Marshal(c.value)
-}
-
-func (c *BackupRespImageType) UnmarshalJSON(b []byte) error {
-	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
-		return err
-	} else {
-		return errors.New("convert enum data to string error")
-	}
-}
-
-type BackupRespResourceType struct {
-	value string
-}
-
-type BackupRespResourceTypeEnum struct {
-	OSNOVASERVER   BackupRespResourceType
-	OSCINDERVOLUME BackupRespResourceType
-}
-
-func GetBackupRespResourceTypeEnum() BackupRespResourceTypeEnum {
-	return BackupRespResourceTypeEnum{
-		OSNOVASERVER: BackupRespResourceType{
-			value: "OS::Nova::Server",
-		},
-		OSCINDERVOLUME: BackupRespResourceType{
-			value: "OS::Cinder::Volume",
-		},
-	}
-}
-
-func (c BackupRespResourceType) Value() string {
-	return c.value
-}
-
-func (c BackupRespResourceType) MarshalJSON() ([]byte, error) {
-	return utils.Marshal(c.value)
-}
-
-func (c *BackupRespResourceType) UnmarshalJSON(b []byte) error {
-	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
-		return err
-	} else {
-		return errors.New("convert enum data to string error")
-	}
 }
 
 type BackupRespStatus struct {

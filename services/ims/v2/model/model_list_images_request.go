@@ -102,6 +102,7 @@ type ListImagesRequestImagetypeEnum struct {
 	GOLD    ListImagesRequestImagetype
 	PRIVATE ListImagesRequestImagetype
 	SHARED  ListImagesRequestImagetype
+	MARKET  ListImagesRequestImagetype
 }
 
 func GetListImagesRequestImagetypeEnum() ListImagesRequestImagetypeEnum {
@@ -114,6 +115,9 @@ func GetListImagesRequestImagetypeEnum() ListImagesRequestImagetypeEnum {
 		},
 		SHARED: ListImagesRequestImagetype{
 			value: "shared",
+		},
+		MARKET: ListImagesRequestImagetype{
+			value: "market",
 		},
 	}
 }

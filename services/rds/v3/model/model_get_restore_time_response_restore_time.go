@@ -7,9 +7,9 @@ import (
 )
 
 type GetRestoreTimeResponseRestoreTime struct {
-	StartTime int32 `json:"start_time"`
+	StartTime int64 `json:"start_time"`
 
-	EndTime int32 `json:"end_time"`
+	EndTime int64 `json:"end_time"`
 }
 
 func (o GetRestoreTimeResponseRestoreTime) String() string {

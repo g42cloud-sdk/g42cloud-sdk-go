@@ -25,6 +25,8 @@ type ResourceResp struct {
 	BackupSize *int32 `json:"backup_size,omitempty"`
 
 	BackupCount *int32 `json:"backup_count,omitempty"`
+
+	AutoProtect *bool `json:"auto_protect,omitempty"`
 }
 
 func (o ResourceResp) String() string {

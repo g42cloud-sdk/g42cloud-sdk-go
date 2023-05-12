@@ -16,7 +16,7 @@ type ListBackupsRequest struct {
 
 	EndTime *string `json:"end_time,omitempty"`
 
-	ImageType *ListBackupsRequestImageType `json:"image_type,omitempty"`
+	ImageType *string `json:"image_type,omitempty"`
 
 	Limit *int32 `json:"limit,omitempty"`
 
@@ -32,7 +32,7 @@ type ListBackupsRequest struct {
 
 	ResourceName *string `json:"resource_name,omitempty"`
 
-	ResourceType *ListBackupsRequestResourceType `json:"resource_type,omitempty"`
+	ResourceType *string `json:"resource_type,omitempty"`
 
 	Sort *string `json:"sort,omitempty"`
 
@@ -53,6 +53,8 @@ type ListBackupsRequest struct {
 	UsedPercent *string `json:"used_percent,omitempty"`
 
 	ShowReplication *bool `json:"show_replication,omitempty"`
+
+	Incremental *bool `json:"incremental,omitempty"`
 }
 
 func (o ListBackupsRequest) String() string {
@@ -62,90 +64,6 @@ func (o ListBackupsRequest) String() string {
 	}
 
 	return strings.Join([]string{"ListBackupsRequest", string(data)}, " ")
-}
-
-type ListBackupsRequestImageType struct {
-	value string
-}
-
-type ListBackupsRequestImageTypeEnum struct {
-	BACKUP      ListBackupsRequestImageType
-	REPLICATION ListBackupsRequestImageType
-}
-
-func GetListBackupsRequestImageTypeEnum() ListBackupsRequestImageTypeEnum {
-	return ListBackupsRequestImageTypeEnum{
-		BACKUP: ListBackupsRequestImageType{
-			value: "backup",
-		},
-		REPLICATION: ListBackupsRequestImageType{
-			value: "replication",
-		},
-	}
-}
-
-func (c ListBackupsRequestImageType) Value() string {
-	return c.value
-}
-
-func (c ListBackupsRequestImageType) MarshalJSON() ([]byte, error) {
-	return utils.Marshal(c.value)
-}
-
-func (c *ListBackupsRequestImageType) UnmarshalJSON(b []byte) error {
-	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
-		return err
-	} else {
-		return errors.New("convert enum data to string error")
-	}
-}
-
-type ListBackupsRequestResourceType struct {
-	value string
-}
-
-type ListBackupsRequestResourceTypeEnum struct {
-	OSCINDERVOLUME ListBackupsRequestResourceType
-	OSNOVASERVER   ListBackupsRequestResourceType
-}
-
-func GetListBackupsRequestResourceTypeEnum() ListBackupsRequestResourceTypeEnum {
-	return ListBackupsRequestResourceTypeEnum{
-		OSCINDERVOLUME: ListBackupsRequestResourceType{
-			value: "OS::Cinder::Volume",
-		},
-		OSNOVASERVER: ListBackupsRequestResourceType{
-			value: "OS::Nova::Server",
-		},
-	}
-}
-
-func (c ListBackupsRequestResourceType) Value() string {
-	return c.value
-}
-
-func (c ListBackupsRequestResourceType) MarshalJSON() ([]byte, error) {
-	return utils.Marshal(c.value)
-}
-
-func (c *ListBackupsRequestResourceType) UnmarshalJSON(b []byte) error {
-	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
-		return err
-	} else {
-		return errors.New("convert enum data to string error")
-	}
 }
 
 type ListBackupsRequestStatus struct {

@@ -18,14 +18,6 @@ func (c *CbrClient) GetBatchCreateAndDeleteVaultTagsRequest() *model.BatchCreate
 	return new(model.BatchCreateAndDeleteVaultTagsRequest)
 }
 
-func (c *CbrClient) GetCopyBackupRequest() *model.CopyBackupRequest {
-	return new(model.CopyBackupRequest)
-}
-
-func (c *CbrClient) GetCopyCheckpointRequest() *model.CopyCheckpointRequest {
-	return new(model.CopyCheckpointRequest)
-}
-
 func (c *CbrClient) GetCreateCheckpointRequest() *model.CreateCheckpointRequest {
 	return new(model.CreateCheckpointRequest)
 }
@@ -66,10 +58,6 @@ func (c *CbrClient) GetDisassociateVaultPolicyRequest() *model.DisassociateVault
 	return new(model.DisassociateVaultPolicyRequest)
 }
 
-func (c *CbrClient) GetImportBackupRequest() *model.ImportBackupRequest {
-	return new(model.ImportBackupRequest)
-}
-
 func (c *CbrClient) GetListBackupsRequest() *model.ListBackupsRequest {
 	return new(model.ListBackupsRequest)
 }
@@ -88,10 +76,6 @@ func (c *CbrClient) GetListProtectableRequest() *model.ListProtectableRequest {
 
 func (c *CbrClient) GetListVaultRequest() *model.ListVaultRequest {
 	return new(model.ListVaultRequest)
-}
-
-func (c *CbrClient) GetMigrateVaultResourceRequest() *model.MigrateVaultResourceRequest {
-	return new(model.MigrateVaultResourceRequest)
 }
 
 func (c *CbrClient) GetRemoveVaultResourceRequest() *model.RemoveVaultResourceRequest {
@@ -128,10 +112,6 @@ func (c *CbrClient) GetShowPolicyRequest() *model.ShowPolicyRequest {
 
 func (c *CbrClient) GetShowProtectableRequest() *model.ShowProtectableRequest {
 	return new(model.ShowProtectableRequest)
-}
-
-func (c *CbrClient) GetShowReplicationCapabilitiesRequest() *model.ShowReplicationCapabilitiesRequest {
-	return new(model.ShowReplicationCapabilitiesRequest)
 }
 
 func (c *CbrClient) GetShowVaultRequest() *model.ShowVaultRequest {

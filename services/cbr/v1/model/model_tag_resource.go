@@ -9,7 +9,7 @@ import (
 type TagResource struct {
 	ResourceId string `json:"resource_id"`
 
-	ResourceDetail []Vault `json:"resource_detail"`
+	ResourceDetail *InstancesResourceDetail `json:"resource_detail"`
 
 	Tags []Tag `json:"tags"`
 

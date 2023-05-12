@@ -8,6 +8,8 @@ import (
 
 type ResourceExtraInfo struct {
 	ExcludeVolumes *[]string `json:"exclude_volumes,omitempty"`
+
+	IncludeVolumes *[]ResourceExtraInfoIncludeVolumes `json:"include_volumes,omitempty"`
 }
 
 func (o ResourceExtraInfo) String() string {

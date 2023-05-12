@@ -39,17 +39,13 @@ type PolicyOperationType struct {
 }
 
 type PolicyOperationTypeEnum struct {
-	BACKUP      PolicyOperationType
-	REPLICATION PolicyOperationType
+	BACKUP PolicyOperationType
 }
 
 func GetPolicyOperationTypeEnum() PolicyOperationTypeEnum {
 	return PolicyOperationTypeEnum{
 		BACKUP: PolicyOperationType{
 			value: "backup",
-		},
-		REPLICATION: PolicyOperationType{
-			value: "replication",
 		},
 	}
 }

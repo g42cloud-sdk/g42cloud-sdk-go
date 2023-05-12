@@ -21,7 +21,7 @@ type VaultGet struct {
 
 	Resources []ResourceResp `json:"resources"`
 
-	Tags *[]TagsResp `json:"tags,omitempty"`
+	Tags *[]Tag `json:"tags,omitempty"`
 
 	EnterpriseProjectId *string `json:"enterprise_project_id,omitempty"`
 

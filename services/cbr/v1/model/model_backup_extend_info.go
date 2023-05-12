@@ -29,6 +29,8 @@ type BackupExtendInfo struct {
 	Encrypted *bool `json:"encrypted,omitempty"`
 
 	SystemDisk *bool `json:"system_disk,omitempty"`
+
+	IsMultiAz *bool `json:"is_multi_az,omitempty"`
 }
 
 func (o BackupExtendInfo) String() string {

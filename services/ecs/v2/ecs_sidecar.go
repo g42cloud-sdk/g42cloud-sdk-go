@@ -138,6 +138,10 @@ func (c *EcsClient) GetNovaAssociateSecurityGroupRequest() *model.NovaAssociateS
 	return new(model.NovaAssociateSecurityGroupRequest)
 }
 
+func (c *EcsClient) GetNovaAttachInterfaceRequest() *model.NovaAttachInterfaceRequest {
+	return new(model.NovaAttachInterfaceRequest)
+}
+
 func (c *EcsClient) GetNovaCreateKeypairRequest() *model.NovaCreateKeypairRequest {
 	return new(model.NovaCreateKeypairRequest)
 }

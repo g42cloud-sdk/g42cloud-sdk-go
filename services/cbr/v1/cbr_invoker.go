@@ -53,30 +53,6 @@ func (i *BatchCreateAndDeleteVaultTagsInvoker) Invoke() (*model.BatchCreateAndDe
 	}
 }
 
-type CopyBackupInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *CopyBackupInvoker) Invoke() (*model.CopyBackupResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.CopyBackupResponse), nil
-	}
-}
-
-type CopyCheckpointInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *CopyCheckpointInvoker) Invoke() (*model.CopyCheckpointResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.CopyCheckpointResponse), nil
-	}
-}
-
 type CreateCheckpointInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -197,18 +173,6 @@ func (i *DisassociateVaultPolicyInvoker) Invoke() (*model.DisassociateVaultPolic
 	}
 }
 
-type ImportBackupInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ImportBackupInvoker) Invoke() (*model.ImportBackupResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ImportBackupResponse), nil
-	}
-}
-
 type ListBackupsInvoker struct {
 	*invoker.BaseInvoker
 }
@@ -266,18 +230,6 @@ func (i *ListVaultInvoker) Invoke() (*model.ListVaultResponse, error) {
 		return nil, err
 	} else {
 		return result.(*model.ListVaultResponse), nil
-	}
-}
-
-type MigrateVaultResourceInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *MigrateVaultResourceInvoker) Invoke() (*model.MigrateVaultResourceResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.MigrateVaultResourceResponse), nil
 	}
 }
 
@@ -386,18 +338,6 @@ func (i *ShowProtectableInvoker) Invoke() (*model.ShowProtectableResponse, error
 		return nil, err
 	} else {
 		return result.(*model.ShowProtectableResponse), nil
-	}
-}
-
-type ShowReplicationCapabilitiesInvoker struct {
-	*invoker.BaseInvoker
-}
-
-func (i *ShowReplicationCapabilitiesInvoker) Invoke() (*model.ShowReplicationCapabilitiesResponse, error) {
-	if result, err := i.BaseInvoker.Invoke(); err != nil {
-		return nil, err
-	} else {
-		return result.(*model.ShowReplicationCapabilitiesResponse), nil
 	}
 }
 

@@ -529,6 +529,21 @@ func (c *EcsClient) NovaAssociateSecurityGroupInvoker(request *model.NovaAssocia
 	return &NovaAssociateSecurityGroupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+func (c *EcsClient) NovaAttachInterface(request *model.NovaAttachInterfaceRequest) (*model.NovaAttachInterfaceResponse, error) {
+	requestDef := GenReqDefForNovaAttachInterface()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.NovaAttachInterfaceResponse), nil
+	}
+}
+
+func (c *EcsClient) NovaAttachInterfaceInvoker(request *model.NovaAttachInterfaceRequest) *NovaAttachInterfaceInvoker {
+	requestDef := GenReqDefForNovaAttachInterface()
+	return &NovaAttachInterfaceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 func (c *EcsClient) NovaCreateKeypair(request *model.NovaCreateKeypairRequest) (*model.NovaCreateKeypairResponse, error) {
 	requestDef := GenReqDefForNovaCreateKeypair()
 

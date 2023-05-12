@@ -87,41 +87,6 @@ func GenReqDefForBatchCreateAndDeleteVaultTags() *def.HttpRequestDef {
 	return requestDef
 }
 
-func GenReqDefForCopyBackup() *def.HttpRequestDef {
-	reqDefBuilder := def.NewHttpRequestDefBuilder().
-		WithMethod(http.MethodPost).
-		WithPath("/v3/{project_id}/backups/{backup_id}/replicate").
-		WithResponse(new(model.CopyBackupResponse)).
-		WithContentType("application/json;charset=UTF-8")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("BackupId").
-		WithJsonTag("backup_id").
-		WithLocationType(def.Path))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Body").
-		WithLocationType(def.Body))
-
-	requestDef := reqDefBuilder.Build()
-	return requestDef
-}
-
-func GenReqDefForCopyCheckpoint() *def.HttpRequestDef {
-	reqDefBuilder := def.NewHttpRequestDefBuilder().
-		WithMethod(http.MethodPost).
-		WithPath("/v3/{project_id}/checkpoints/replicate").
-		WithResponse(new(model.CopyCheckpointResponse)).
-		WithContentType("application/json;charset=UTF-8")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Body").
-		WithLocationType(def.Body))
-
-	requestDef := reqDefBuilder.Build()
-	return requestDef
-}
-
 func GenReqDefForCreateCheckpoint() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodPost).
@@ -295,21 +260,6 @@ func GenReqDefForDisassociateVaultPolicy() *def.HttpRequestDef {
 	return requestDef
 }
 
-func GenReqDefForImportBackup() *def.HttpRequestDef {
-	reqDefBuilder := def.NewHttpRequestDefBuilder().
-		WithMethod(http.MethodPost).
-		WithPath("/v3/{project_id}/backups/sync").
-		WithResponse(new(model.ImportBackupResponse)).
-		WithContentType("application/json;charset=UTF-8")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Body").
-		WithLocationType(def.Body))
-
-	requestDef := reqDefBuilder.Build()
-	return requestDef
-}
-
 func GenReqDefForListBackups() *def.HttpRequestDef {
 	reqDefBuilder := def.NewHttpRequestDefBuilder().
 		WithMethod(http.MethodGet).
@@ -404,6 +354,10 @@ func GenReqDefForListBackups() *def.HttpRequestDef {
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("ShowReplication").
 		WithJsonTag("show_replication").
+		WithLocationType(def.Query))
+	reqDefBuilder.WithRequestField(def.NewFieldDef().
+		WithName("Incremental").
+		WithJsonTag("incremental").
 		WithLocationType(def.Query))
 
 	requestDef := reqDefBuilder.Build()
@@ -586,26 +540,6 @@ func GenReqDefForListVault() *def.HttpRequestDef {
 		WithName("ResourceIds").
 		WithJsonTag("resource_ids").
 		WithLocationType(def.Query))
-
-	requestDef := reqDefBuilder.Build()
-	return requestDef
-}
-
-func GenReqDefForMigrateVaultResource() *def.HttpRequestDef {
-	reqDefBuilder := def.NewHttpRequestDefBuilder().
-		WithMethod(http.MethodPost).
-		WithPath("/v3/{project_id}/vaults/{vault_id}/migrateresources").
-		WithResponse(new(model.MigrateVaultResourceResponse)).
-		WithContentType("application/json;charset=UTF-8")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("VaultId").
-		WithJsonTag("vault_id").
-		WithLocationType(def.Path))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Body").
-		WithLocationType(def.Body))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -799,17 +733,6 @@ func GenReqDefForShowProtectable() *def.HttpRequestDef {
 		WithName("ProtectableType").
 		WithJsonTag("protectable_type").
 		WithLocationType(def.Path))
-
-	requestDef := reqDefBuilder.Build()
-	return requestDef
-}
-
-func GenReqDefForShowReplicationCapabilities() *def.HttpRequestDef {
-	reqDefBuilder := def.NewHttpRequestDefBuilder().
-		WithMethod(http.MethodGet).
-		WithPath("/v3/{project_id}/replication-capabilities").
-		WithResponse(new(model.ShowReplicationCapabilitiesResponse)).
-		WithContentType("application/json")
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef

@@ -18,6 +18,8 @@ type CheckpointParam struct {
 	Resources *[]string `json:"resources,omitempty"`
 
 	ResourceDetails *[]Resource `json:"resource_details,omitempty"`
+
+	PolicyId *string `json:"policy_id,omitempty"`
 }
 
 func (o CheckpointParam) String() string {

@@ -7,7 +7,7 @@ import (
 )
 
 type VaultBindRules struct {
-	Tags *[]Tag `json:"tags,omitempty"`
+	Tags *[]BindRulesTags `json:"tags,omitempty"`
 }
 
 func (o VaultBindRules) String() string {

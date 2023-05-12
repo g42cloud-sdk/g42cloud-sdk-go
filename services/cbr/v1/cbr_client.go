@@ -79,36 +79,6 @@ func (c *CbrClient) BatchCreateAndDeleteVaultTagsInvoker(request *model.BatchCre
 	return &BatchCreateAndDeleteVaultTagsInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-func (c *CbrClient) CopyBackup(request *model.CopyBackupRequest) (*model.CopyBackupResponse, error) {
-	requestDef := GenReqDefForCopyBackup()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.CopyBackupResponse), nil
-	}
-}
-
-func (c *CbrClient) CopyBackupInvoker(request *model.CopyBackupRequest) *CopyBackupInvoker {
-	requestDef := GenReqDefForCopyBackup()
-	return &CopyBackupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
-func (c *CbrClient) CopyCheckpoint(request *model.CopyCheckpointRequest) (*model.CopyCheckpointResponse, error) {
-	requestDef := GenReqDefForCopyCheckpoint()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.CopyCheckpointResponse), nil
-	}
-}
-
-func (c *CbrClient) CopyCheckpointInvoker(request *model.CopyCheckpointRequest) *CopyCheckpointInvoker {
-	requestDef := GenReqDefForCopyCheckpoint()
-	return &CopyCheckpointInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
 func (c *CbrClient) CreateCheckpoint(request *model.CreateCheckpointRequest) (*model.CreateCheckpointResponse, error) {
 	requestDef := GenReqDefForCreateCheckpoint()
 
@@ -259,21 +229,6 @@ func (c *CbrClient) DisassociateVaultPolicyInvoker(request *model.DisassociateVa
 	return &DisassociateVaultPolicyInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
-func (c *CbrClient) ImportBackup(request *model.ImportBackupRequest) (*model.ImportBackupResponse, error) {
-	requestDef := GenReqDefForImportBackup()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.ImportBackupResponse), nil
-	}
-}
-
-func (c *CbrClient) ImportBackupInvoker(request *model.ImportBackupRequest) *ImportBackupInvoker {
-	requestDef := GenReqDefForImportBackup()
-	return &ImportBackupInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
 func (c *CbrClient) ListBackups(request *model.ListBackupsRequest) (*model.ListBackupsResponse, error) {
 	requestDef := GenReqDefForListBackups()
 
@@ -347,21 +302,6 @@ func (c *CbrClient) ListVault(request *model.ListVaultRequest) (*model.ListVault
 func (c *CbrClient) ListVaultInvoker(request *model.ListVaultRequest) *ListVaultInvoker {
 	requestDef := GenReqDefForListVault()
 	return &ListVaultInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
-func (c *CbrClient) MigrateVaultResource(request *model.MigrateVaultResourceRequest) (*model.MigrateVaultResourceResponse, error) {
-	requestDef := GenReqDefForMigrateVaultResource()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.MigrateVaultResourceResponse), nil
-	}
-}
-
-func (c *CbrClient) MigrateVaultResourceInvoker(request *model.MigrateVaultResourceRequest) *MigrateVaultResourceInvoker {
-	requestDef := GenReqDefForMigrateVaultResource()
-	return &MigrateVaultResourceInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 func (c *CbrClient) RemoveVaultResource(request *model.RemoveVaultResourceRequest) (*model.RemoveVaultResourceResponse, error) {
@@ -497,21 +437,6 @@ func (c *CbrClient) ShowProtectable(request *model.ShowProtectableRequest) (*mod
 func (c *CbrClient) ShowProtectableInvoker(request *model.ShowProtectableRequest) *ShowProtectableInvoker {
 	requestDef := GenReqDefForShowProtectable()
 	return &ShowProtectableInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
-}
-
-func (c *CbrClient) ShowReplicationCapabilities(request *model.ShowReplicationCapabilitiesRequest) (*model.ShowReplicationCapabilitiesResponse, error) {
-	requestDef := GenReqDefForShowReplicationCapabilities()
-
-	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
-		return nil, err
-	} else {
-		return resp.(*model.ShowReplicationCapabilitiesResponse), nil
-	}
-}
-
-func (c *CbrClient) ShowReplicationCapabilitiesInvoker(request *model.ShowReplicationCapabilitiesRequest) *ShowReplicationCapabilitiesInvoker {
-	requestDef := GenReqDefForShowReplicationCapabilities()
-	return &ShowReplicationCapabilitiesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 func (c *CbrClient) ShowVault(request *model.ShowVaultRequest) (*model.ShowVaultResponse, error) {

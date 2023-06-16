@@ -16,6 +16,8 @@ type ListTopicsRequest struct {
 	Name *string `json:"name,omitempty"`
 
 	FuzzyName *string `json:"fuzzy_name,omitempty"`
+
+	TopicId *string `json:"topic_id,omitempty"`
 }
 
 func (o ListTopicsRequest) String() string {

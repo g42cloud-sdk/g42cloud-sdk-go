@@ -20,12 +20,13 @@
 package invoker
 
 import (
+	"time"
+
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/def"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/exchange"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/invoker/retry"
-	"time"
 )
 
 type RetryChecker func(interface{}, error) bool
@@ -91,7 +92,7 @@ func (b *BaseInvoker) Invoke() (interface{}, error) {
 			execTimes += 1
 
 			if b.retryChecker(resp, err) {
-				time.Sleep(time.Duration(b.backoffStrategy.ComputeDelayBeforeNextRetry()))
+				time.Sleep(time.Duration(b.backoffStrategy.ComputeDelayBeforeNextRetry(int32(execTimes))) * time.Millisecond)
 			} else {
 				break
 			}

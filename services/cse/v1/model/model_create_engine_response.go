@@ -11,7 +11,7 @@ type CreateEngineResponse struct {
 
 	Name *string `json:"name,omitempty"`
 
-	JobId          *int32 `json:"job_id,omitempty"`
+	JobId          *int32 `json:"jobId,omitempty"`
 	HttpStatusCode int    `json:"-"`
 }
 

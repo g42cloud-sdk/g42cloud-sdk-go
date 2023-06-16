@@ -16,6 +16,8 @@ type ListTopicsItem struct {
 	PushPolicy int32 `json:"push_policy"`
 
 	EnterpriseProjectId string `json:"enterprise_project_id"`
+
+	TopicId string `json:"topic_id"`
 }
 
 func (o ListTopicsItem) String() string {

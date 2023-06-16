@@ -14,6 +14,10 @@ func (c *SmnClient) GetCancelSubscriptionRequest() *model.CancelSubscriptionRequ
 	return new(model.CancelSubscriptionRequest)
 }
 
+func (c *SmnClient) GetCreateLogtankRequest() *model.CreateLogtankRequest {
+	return new(model.CreateLogtankRequest)
+}
+
 func (c *SmnClient) GetCreateMessageTemplateRequest() *model.CreateMessageTemplateRequest {
 	return new(model.CreateMessageTemplateRequest)
 }
@@ -24,6 +28,10 @@ func (c *SmnClient) GetCreateResourceTagRequest() *model.CreateResourceTagReques
 
 func (c *SmnClient) GetCreateTopicRequest() *model.CreateTopicRequest {
 	return new(model.CreateTopicRequest)
+}
+
+func (c *SmnClient) GetDeleteLogtankRequest() *model.DeleteLogtankRequest {
+	return new(model.DeleteLogtankRequest)
 }
 
 func (c *SmnClient) GetDeleteMessageTemplateRequest() *model.DeleteMessageTemplateRequest {
@@ -44,6 +52,10 @@ func (c *SmnClient) GetDeleteTopicAttributeByNameRequest() *model.DeleteTopicAtt
 
 func (c *SmnClient) GetDeleteTopicAttributesRequest() *model.DeleteTopicAttributesRequest {
 	return new(model.DeleteTopicAttributesRequest)
+}
+
+func (c *SmnClient) GetListLogtankRequest() *model.ListLogtankRequest {
+	return new(model.ListLogtankRequest)
 }
 
 func (c *SmnClient) GetListMessageTemplateDetailsRequest() *model.ListMessageTemplateDetailsRequest {
@@ -98,8 +110,16 @@ func (c *SmnClient) GetPublishMessageRequest() *model.PublishMessageRequest {
 	return new(model.PublishMessageRequest)
 }
 
+func (c *SmnClient) GetUpdateLogtankRequest() *model.UpdateLogtankRequest {
+	return new(model.UpdateLogtankRequest)
+}
+
 func (c *SmnClient) GetUpdateMessageTemplateRequest() *model.UpdateMessageTemplateRequest {
 	return new(model.UpdateMessageTemplateRequest)
+}
+
+func (c *SmnClient) GetUpdateSubscriptionRequest() *model.UpdateSubscriptionRequest {
+	return new(model.UpdateSubscriptionRequest)
 }
 
 func (c *SmnClient) GetUpdateTopicRequest() *model.UpdateTopicRequest {

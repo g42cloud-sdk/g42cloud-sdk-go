@@ -12,6 +12,8 @@ type AddSubscriptionRequestBody struct {
 	Endpoint string `json:"endpoint"`
 
 	Remark *string `json:"remark,omitempty"`
+
+	Extension *SubscriptionExtension `json:"extension,omitempty"`
 }
 
 func (o AddSubscriptionRequestBody) String() string {

@@ -64,6 +64,21 @@ func (c *SmnClient) CancelSubscriptionInvoker(request *model.CancelSubscriptionR
 	return &CancelSubscriptionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+func (c *SmnClient) CreateLogtank(request *model.CreateLogtankRequest) (*model.CreateLogtankResponse, error) {
+	requestDef := GenReqDefForCreateLogtank()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.CreateLogtankResponse), nil
+	}
+}
+
+func (c *SmnClient) CreateLogtankInvoker(request *model.CreateLogtankRequest) *CreateLogtankInvoker {
+	requestDef := GenReqDefForCreateLogtank()
+	return &CreateLogtankInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 func (c *SmnClient) CreateMessageTemplate(request *model.CreateMessageTemplateRequest) (*model.CreateMessageTemplateResponse, error) {
 	requestDef := GenReqDefForCreateMessageTemplate()
 
@@ -107,6 +122,21 @@ func (c *SmnClient) CreateTopic(request *model.CreateTopicRequest) (*model.Creat
 func (c *SmnClient) CreateTopicInvoker(request *model.CreateTopicRequest) *CreateTopicInvoker {
 	requestDef := GenReqDefForCreateTopic()
 	return &CreateTopicInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+func (c *SmnClient) DeleteLogtank(request *model.DeleteLogtankRequest) (*model.DeleteLogtankResponse, error) {
+	requestDef := GenReqDefForDeleteLogtank()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.DeleteLogtankResponse), nil
+	}
+}
+
+func (c *SmnClient) DeleteLogtankInvoker(request *model.DeleteLogtankRequest) *DeleteLogtankInvoker {
+	requestDef := GenReqDefForDeleteLogtank()
+	return &DeleteLogtankInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 func (c *SmnClient) DeleteMessageTemplate(request *model.DeleteMessageTemplateRequest) (*model.DeleteMessageTemplateResponse, error) {
@@ -182,6 +212,21 @@ func (c *SmnClient) DeleteTopicAttributes(request *model.DeleteTopicAttributesRe
 func (c *SmnClient) DeleteTopicAttributesInvoker(request *model.DeleteTopicAttributesRequest) *DeleteTopicAttributesInvoker {
 	requestDef := GenReqDefForDeleteTopicAttributes()
 	return &DeleteTopicAttributesInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+func (c *SmnClient) ListLogtank(request *model.ListLogtankRequest) (*model.ListLogtankResponse, error) {
+	requestDef := GenReqDefForListLogtank()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.ListLogtankResponse), nil
+	}
+}
+
+func (c *SmnClient) ListLogtankInvoker(request *model.ListLogtankRequest) *ListLogtankInvoker {
+	requestDef := GenReqDefForListLogtank()
+	return &ListLogtankInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 func (c *SmnClient) ListMessageTemplateDetails(request *model.ListMessageTemplateDetailsRequest) (*model.ListMessageTemplateDetailsResponse, error) {
@@ -379,6 +424,21 @@ func (c *SmnClient) PublishMessageInvoker(request *model.PublishMessageRequest) 
 	return &PublishMessageInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
+func (c *SmnClient) UpdateLogtank(request *model.UpdateLogtankRequest) (*model.UpdateLogtankResponse, error) {
+	requestDef := GenReqDefForUpdateLogtank()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateLogtankResponse), nil
+	}
+}
+
+func (c *SmnClient) UpdateLogtankInvoker(request *model.UpdateLogtankRequest) *UpdateLogtankInvoker {
+	requestDef := GenReqDefForUpdateLogtank()
+	return &UpdateLogtankInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
 func (c *SmnClient) UpdateMessageTemplate(request *model.UpdateMessageTemplateRequest) (*model.UpdateMessageTemplateResponse, error) {
 	requestDef := GenReqDefForUpdateMessageTemplate()
 
@@ -392,6 +452,21 @@ func (c *SmnClient) UpdateMessageTemplate(request *model.UpdateMessageTemplateRe
 func (c *SmnClient) UpdateMessageTemplateInvoker(request *model.UpdateMessageTemplateRequest) *UpdateMessageTemplateInvoker {
 	requestDef := GenReqDefForUpdateMessageTemplate()
 	return &UpdateMessageTemplateInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
+}
+
+func (c *SmnClient) UpdateSubscription(request *model.UpdateSubscriptionRequest) (*model.UpdateSubscriptionResponse, error) {
+	requestDef := GenReqDefForUpdateSubscription()
+
+	if resp, err := c.HcClient.Sync(request, requestDef); err != nil {
+		return nil, err
+	} else {
+		return resp.(*model.UpdateSubscriptionResponse), nil
+	}
+}
+
+func (c *SmnClient) UpdateSubscriptionInvoker(request *model.UpdateSubscriptionRequest) *UpdateSubscriptionInvoker {
+	requestDef := GenReqDefForUpdateSubscription()
+	return &UpdateSubscriptionInvoker{invoker.NewBaseInvoker(c.HcClient, request, requestDef)}
 }
 
 func (c *SmnClient) UpdateTopic(request *model.UpdateTopicRequest) (*model.UpdateTopicResponse, error) {

@@ -29,6 +29,8 @@ type PostPaidServerDataVolume struct {
 	Metadata *PostPaidServerDataVolumeMetadata `json:"metadata,omitempty"`
 
 	DataImageId *string `json:"data_image_id,omitempty"`
+
+	DeleteOnTermination *bool `json:"delete_on_termination,omitempty"`
 }
 
 func (o PostPaidServerDataVolume) String() string {

@@ -22,7 +22,9 @@ type ListTopicDetailsResponse struct {
 	RequestId *string `json:"request_id,omitempty"`
 
 	EnterpriseProjectId *string `json:"enterprise_project_id,omitempty"`
-	HttpStatusCode      int     `json:"-"`
+
+	TopicId        *string `json:"topic_id,omitempty"`
+	HttpStatusCode int     `json:"-"`
 }
 
 func (o ListTopicDetailsResponse) String() string {

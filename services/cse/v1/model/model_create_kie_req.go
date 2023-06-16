@@ -7,6 +7,8 @@ import (
 )
 
 type CreateKieReq struct {
+	Id *string `json:"id,omitempty"`
+
 	Key *string `json:"key,omitempty"`
 
 	Labels *interface{} `json:"labels,omitempty"`

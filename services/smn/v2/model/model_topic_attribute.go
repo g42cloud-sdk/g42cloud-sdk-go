@@ -7,11 +7,9 @@ import (
 )
 
 type TopicAttribute struct {
-	Version string `json:"Version"`
+	AccessPolicy *AccessPolicy `json:"access_policy,omitempty"`
 
-	Id string `json:"Id"`
-
-	Statement []Statement `json:"Statement"`
+	Introduction *string `json:"introduction,omitempty"`
 }
 
 func (o TopicAttribute) String() string {

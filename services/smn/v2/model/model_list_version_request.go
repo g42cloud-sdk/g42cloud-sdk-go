@@ -7,7 +7,6 @@ import (
 )
 
 type ListVersionRequest struct {
-	ApiVersion string `json:"api_version"`
 }
 
 func (o ListVersionRequest) String() string {

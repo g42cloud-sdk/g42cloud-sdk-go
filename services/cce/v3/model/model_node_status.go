@@ -12,6 +12,8 @@ import (
 type NodeStatus struct {
 	Phase *NodeStatusPhase `json:"phase,omitempty"`
 
+	LastProbeTime *string `json:"lastProbeTime,omitempty"`
+
 	JobID *string `json:"jobID,omitempty"`
 
 	ServerId *string `json:"serverId,omitempty"`

@@ -26,7 +26,7 @@ import (
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/request"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/response"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/sdkerr"
-	jsoniter "github.com/json-iterator/go"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/utils"
 	"io/ioutil"
 	"os"
 	"reflect"
@@ -82,7 +82,7 @@ func KeystoneListProjects(client *impl.DefaultHttpClient, req *request.DefaultHt
 	}
 
 	keystoneListProjectResponse := new(KeystoneListProjectsResponse)
-	err = jsoniter.Unmarshal(data, keystoneListProjectResponse)
+	err = utils.Unmarshal(data, keystoneListProjectResponse)
 	if err != nil {
 		return "", err
 	}
@@ -126,7 +126,7 @@ func KeystoneListAuthDomains(client *impl.DefaultHttpClient, req *request.Defaul
 	}
 
 	keystoneListAuthDomainsResponse := new(KeystoneListAuthDomainsResponse)
-	err = jsoniter.Unmarshal(data, keystoneListAuthDomainsResponse)
+	err = utils.Unmarshal(data, keystoneListAuthDomainsResponse)
 	if err != nil {
 		return "", err
 	}
@@ -318,7 +318,7 @@ func CreateTokenWithIdToken(client *impl.DefaultHttpClient, req *request.Default
 	}
 
 	createTokenWithIdTokenResponse := new(CreateTokenWithIdTokenResponse)
-	err = jsoniter.Unmarshal(data, createTokenWithIdTokenResponse)
+	err = utils.Unmarshal(data, createTokenWithIdTokenResponse)
 	if err != nil {
 		return nil, err
 	}

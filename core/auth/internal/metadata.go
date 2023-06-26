@@ -20,8 +20,8 @@
 package internal
 
 import (
-	"encoding/json"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/sdkerr"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/utils"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -65,7 +65,7 @@ func GetCredentialFromMetadata() (*Credential, error) {
 	}
 
 	respModel := &GetTemporaryCredentialFromMetadataResponse{}
-	err = json.Unmarshal(body, respModel)
+	err = utils.Unmarshal(body, respModel)
 	if err != nil {
 		return nil, err
 	}

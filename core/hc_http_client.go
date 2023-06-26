@@ -33,7 +33,7 @@ import (
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/request"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/response"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/sdkerr"
-	jsoniter "github.com/json-iterator/go"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/utils"
 	"go.mongodb.org/mongo-driver/bson"
 	"io/ioutil"
 	"net"
@@ -262,13 +262,20 @@ func (hc *HcHttpClient) getFieldValueByName(name string, jsonTag map[string]stri
 
 func flattenEnumStruct(value reflect.Value) (reflect.Value, error) {
 	if value.Kind() == reflect.Struct {
-		v, e := jsoniter.Marshal(value.Interface())
+		if method := value.MethodByName("Value"); method.IsValid() {
+			return method.Call(nil)[0], nil
+		}
+
+		v, e := utils.Marshal(value.Interface())
 		if e == nil {
-			if strings.HasPrefix(string(v), "\"") {
-				return reflect.ValueOf(strings.Trim(string(v), "\"")), nil
-			} else {
-				return reflect.ValueOf(string(v)), nil
+			str := string(v)
+			if strings.HasSuffix(str, "\n") {
+				str = strings.Trim(str, "\n")
 			}
+			if strings.HasPrefix(str, "\"") {
+				str = strings.Trim(str, "\"")
+			}
+			return reflect.ValueOf(str), nil
 		}
 		return reflect.ValueOf(nil), e
 	}
@@ -367,7 +374,7 @@ func (hc *HcHttpClient) deserializeResponseFields(resp *response.DefaultHttpResp
 		} else if strings.Contains(resp.Response.Header.Get(contentType), applicationBson) {
 			err = bson.Unmarshal(data, reqDef.Response)
 		} else {
-			err = jsoniter.Unmarshal(data, &reqDef.Response)
+			err = utils.Unmarshal(data, &reqDef.Response)
 		}
 
 		if err != nil {

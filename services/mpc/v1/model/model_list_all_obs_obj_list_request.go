@@ -7,12 +7,6 @@ import (
 )
 
 type ListAllObsObjListRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	Bucket string `json:"bucket"`
 
 	Prefix *string `json:"prefix,omitempty"`

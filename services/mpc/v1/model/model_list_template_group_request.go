@@ -7,12 +7,6 @@ import (
 )
 
 type ListTemplateGroupRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	GroupId *[]string `json:"group_id,omitempty"`
 
 	GroupName *[]string `json:"group_name,omitempty"`

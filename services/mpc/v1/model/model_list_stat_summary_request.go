@@ -7,12 +7,6 @@ import (
 )
 
 type ListStatSummaryRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	StartTime string `json:"start_time"`
 
 	EndTime string `json:"end_time"`

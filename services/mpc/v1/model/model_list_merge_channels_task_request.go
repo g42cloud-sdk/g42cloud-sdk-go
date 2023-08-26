@@ -10,12 +10,6 @@ import (
 )
 
 type ListMergeChannelsTaskRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	TaskId *[]string `json:"task_id,omitempty"`
 
 	Status *ListMergeChannelsTaskRequestStatus `json:"status,omitempty"`
@@ -80,13 +74,18 @@ func (c ListMergeChannelsTaskRequestStatus) MarshalJSON() ([]byte, error) {
 
 func (c *ListMergeChannelsTaskRequestStatus) UnmarshalJSON(b []byte) error {
 	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
+	if myConverter == nil {
+		return errors.New("unsupported StringConverter type: string")
+	}
+
+	interf, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
+	if err != nil {
 		return err
+	}
+
+	if val, ok := interf.(string); ok {
+		c.value = val
+		return nil
 	} else {
 		return errors.New("convert enum data to string error")
 	}

@@ -15,19 +15,6 @@ func GenReqDefForCreateAnimatedGraphicsTask() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -46,19 +33,6 @@ func GenReqDefForDeleteAnimatedGraphicsTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -97,18 +71,6 @@ func GenReqDefForListAnimatedGraphicsTask() *def.HttpRequestDef {
 		WithLocationType(def.Query))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("XLanguage").
 		WithJsonTag("x-language").
 		WithLocationType(def.Header))
@@ -125,19 +87,6 @@ func GenReqDefForCreateAgenciesTask() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -151,19 +100,6 @@ func GenReqDefForListAllBuckets() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/buckets").
 		WithResponse(new(model.ListAllBucketsResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -189,19 +125,6 @@ func GenReqDefForListAllObsObjList() *def.HttpRequestDef {
 		WithJsonTag("type").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -212,19 +135,6 @@ func GenReqDefForListNotifyEvent() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/notification/event").
 		WithResponse(new(model.ListNotifyEventResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -237,19 +147,6 @@ func GenReqDefForListNotifySmnTopicConfig() *def.HttpRequestDef {
 		WithResponse(new(model.ListNotifySmnTopicConfigResponse)).
 		WithContentType("application/json")
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -260,19 +157,6 @@ func GenReqDefForNotifySmnTopicConfig() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/notification").
 		WithResponse(new(model.NotifySmnTopicConfigResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -289,19 +173,6 @@ func GenReqDefForShowAgenciesTask() *def.HttpRequestDef {
 		WithResponse(new(model.ShowAgenciesTaskResponse)).
 		WithContentType("application/json")
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -312,19 +183,6 @@ func GenReqDefForUpdateBucketAuthorized() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/authority").
 		WithResponse(new(model.UpdateBucketAuthorizedResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -414,19 +272,6 @@ func GenReqDefForCreateEncryptTask() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -445,19 +290,6 @@ func GenReqDefForDeleteEncryptTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -495,19 +327,6 @@ func GenReqDefForListEncryptTask() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -518,19 +337,6 @@ func GenReqDefForCreateExtractTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/extract-metadata").
 		WithResponse(new(model.CreateExtractTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -551,19 +357,6 @@ func GenReqDefForDeleteExtractTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -602,18 +395,6 @@ func GenReqDefForListExtractTask() *def.HttpRequestDef {
 		WithLocationType(def.Query))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("XLanguage").
 		WithJsonTag("x-language").
 		WithLocationType(def.Header))
@@ -645,19 +426,6 @@ func GenReqDefForCreateMergeChannelsTask() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -671,19 +439,6 @@ func GenReqDefForCreateResetTracksTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/audio/services/reset_tracks/task").
 		WithResponse(new(model.CreateResetTracksTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -705,19 +460,6 @@ func GenReqDefForDeleteMergeChannelsTask() *def.HttpRequestDef {
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -733,19 +475,6 @@ func GenReqDefForDeleteResetTracksTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -783,19 +512,6 @@ func GenReqDefForListMergeChannelsTask() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -832,19 +548,6 @@ func GenReqDefForListResetTracksTask() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -855,19 +558,6 @@ func GenReqDefForCreateMediaProcessTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/enhancements").
 		WithResponse(new(model.CreateMediaProcessTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -888,19 +578,6 @@ func GenReqDefForDeleteMediaProcessTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -938,19 +615,6 @@ func GenReqDefForListMediaProcessTask() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -978,19 +642,6 @@ func GenReqDefForCreateQualityEnhanceTemplate() *def.HttpRequestDef {
 		WithContentType("application/json")
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
 		WithLocationType(def.Body))
 
@@ -1010,19 +661,6 @@ func GenReqDefForDeleteQualityEnhanceTemplate() *def.HttpRequestDef {
 		WithJsonTag("template_id").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1034,19 +672,6 @@ func GenReqDefForListQualityEnhanceDefaultTemplate() *def.HttpRequestDef {
 		WithResponse(new(model.ListQualityEnhanceDefaultTemplateResponse)).
 		WithContentType("application/json")
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1057,19 +682,6 @@ func GenReqDefForUpdateQualityEnhanceTemplate() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template/qualityenhance").
 		WithResponse(new(model.UpdateQualityEnhanceTemplateResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1091,23 +703,6 @@ func GenReqDefForListTranscodeDetail() *def.HttpRequestDef {
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1124,19 +719,6 @@ func GenReqDefForCancelRemuxTask() *def.HttpRequestDef {
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1147,19 +729,6 @@ func GenReqDefForCreateRemuxTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/remux").
 		WithResponse(new(model.CreateRemuxTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1175,19 +744,6 @@ func GenReqDefForCreateRetryRemuxTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/remux").
 		WithResponse(new(model.CreateRetryRemuxTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1208,19 +764,6 @@ func GenReqDefForDeleteRemuxTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1266,19 +809,6 @@ func GenReqDefForListRemuxTask() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1289,19 +819,6 @@ func GenReqDefForCreateTemplateGroup() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template_group/transcodings").
 		WithResponse(new(model.CreateTemplateGroupResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1322,19 +839,6 @@ func GenReqDefForDeleteTemplateGroup() *def.HttpRequestDef {
 		WithName("GroupId").
 		WithJsonTag("group_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1364,19 +868,6 @@ func GenReqDefForListTemplateGroup() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1387,19 +878,6 @@ func GenReqDefForUpdateTemplateGroup() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template_group/transcodings").
 		WithResponse(new(model.UpdateTemplateGroupResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1415,23 +893,6 @@ func GenReqDefForCreateThumbnailsTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/thumbnails").
 		WithResponse(new(model.CreateThumbnailsTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1452,19 +913,6 @@ func GenReqDefForDeleteThumbnailsTask() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1503,18 +951,6 @@ func GenReqDefForListThumbnailsTask() *def.HttpRequestDef {
 		WithLocationType(def.Query))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("XLanguage").
 		WithJsonTag("x-language").
 		WithLocationType(def.Header))
@@ -1529,23 +965,6 @@ func GenReqDefForCreateTranscodingTask() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/transcodings").
 		WithResponse(new(model.CreateTranscodingTaskResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1567,19 +986,6 @@ func GenReqDefForDeleteTranscodingTask() *def.HttpRequestDef {
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1595,19 +1001,6 @@ func GenReqDefForDeleteTranscodingTaskByConsole() *def.HttpRequestDef {
 		WithName("TaskId").
 		WithJsonTag("task_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1632,19 +1025,6 @@ func GenReqDefForListStatSummary() *def.HttpRequestDef {
 		WithName("StatType").
 		WithJsonTag("stat_type").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1686,18 +1066,6 @@ func GenReqDefForListTranscodingTask() *def.HttpRequestDef {
 		WithName("XLanguage").
 		WithJsonTag("x-language").
 		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1709,23 +1077,6 @@ func GenReqDefForCreateTransTemplate() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template/transcodings").
 		WithResponse(new(model.CreateTransTemplateResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1746,23 +1097,6 @@ func GenReqDefForDeleteTemplate() *def.HttpRequestDef {
 		WithName("TemplateId").
 		WithJsonTag("template_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1788,23 +1122,6 @@ func GenReqDefForListTemplate() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1815,19 +1132,6 @@ func GenReqDefForUpdateTransTemplate() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template/transcodings").
 		WithResponse(new(model.UpdateTransTemplateResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1843,23 +1147,6 @@ func GenReqDefForCreateWatermarkTemplate() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template/watermark").
 		WithResponse(new(model.CreateWatermarkTemplateResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").
@@ -1880,23 +1167,6 @@ func GenReqDefForDeleteWatermarkTemplate() *def.HttpRequestDef {
 		WithName("TemplateId").
 		WithJsonTag("template_id").
 		WithLocationType(def.Query))
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	requestDef := reqDefBuilder.Build()
 	return requestDef
@@ -1922,19 +1192,6 @@ func GenReqDefForListWatermarkTemplate() *def.HttpRequestDef {
 		WithJsonTag("size").
 		WithLocationType(def.Query))
 
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-
 	requestDef := reqDefBuilder.Build()
 	return requestDef
 }
@@ -1945,23 +1202,6 @@ func GenReqDefForUpdateWatermarkTemplate() *def.HttpRequestDef {
 		WithPath("/v1/{project_id}/template/watermark").
 		WithResponse(new(model.UpdateWatermarkTemplateResponse)).
 		WithContentType("application/json")
-
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("Authorization").
-		WithJsonTag("Authorization").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XProjectId").
-		WithJsonTag("X-Project_Id").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XSdkDate").
-		WithJsonTag("X-Sdk-Date").
-		WithLocationType(def.Header))
-	reqDefBuilder.WithRequestField(def.NewFieldDef().
-		WithName("XVodProjectId").
-		WithJsonTag("x-vod-projectId").
-		WithLocationType(def.Header))
 
 	reqDefBuilder.WithRequestField(def.NewFieldDef().
 		WithName("Body").

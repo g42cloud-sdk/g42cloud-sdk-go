@@ -20,6 +20,8 @@ type ThumbnailPara struct {
 
 	Dots *[]int32 `json:"dots,omitempty"`
 
+	DotsMs *[]int32 `json:"dots_ms,omitempty"`
+
 	OutputFilename *string `json:"output_filename,omitempty"`
 
 	Format *int32 `json:"format,omitempty"`
@@ -48,6 +50,7 @@ type ThumbnailParaTypeEnum struct {
 	PERCENT ThumbnailParaType
 	TIME    ThumbnailParaType
 	DOTS    ThumbnailParaType
+	DOTS_MS ThumbnailParaType
 }
 
 func GetThumbnailParaTypeEnum() ThumbnailParaTypeEnum {
@@ -60,6 +63,9 @@ func GetThumbnailParaTypeEnum() ThumbnailParaTypeEnum {
 		},
 		DOTS: ThumbnailParaType{
 			value: "DOTS",
+		},
+		DOTS_MS: ThumbnailParaType{
+			value: "DOTS_MS",
 		},
 	}
 }
@@ -74,13 +80,18 @@ func (c ThumbnailParaType) MarshalJSON() ([]byte, error) {
 
 func (c *ThumbnailParaType) UnmarshalJSON(b []byte) error {
 	myConverter := converter.StringConverterFactory("string")
-	if myConverter != nil {
-		val, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
-		if err == nil {
-			c.value = val.(string)
-			return nil
-		}
+	if myConverter == nil {
+		return errors.New("unsupported StringConverter type: string")
+	}
+
+	interf, err := myConverter.CovertStringToInterface(strings.Trim(string(b[:]), "\""))
+	if err != nil {
 		return err
+	}
+
+	if val, ok := interf.(string); ok {
+		c.value = val
+		return nil
 	} else {
 		return errors.New("convert enum data to string error")
 	}

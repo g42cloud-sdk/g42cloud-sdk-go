@@ -26,10 +26,12 @@ import (
 	"errors"
 	"fmt"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/config"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/converter"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/def"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/exchange"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/impl"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/progress"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/request"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/response"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/sdkerr"
@@ -57,6 +59,7 @@ type HcHttpClient struct {
 	credential    auth.ICredential
 	extraHeader   map[string]string
 	httpClient    *impl.DefaultHttpClient
+	httpConfig    config.HttpConfig
 }
 
 func NewHcHttpClient(httpClient *impl.DefaultHttpClient) *HcHttpClient {
@@ -70,6 +73,11 @@ func (hc *HcHttpClient) WithEndpoints(endpoints []string) *HcHttpClient {
 
 func (hc *HcHttpClient) WithCredential(credential auth.ICredential) *HcHttpClient {
 	hc.credential = credential
+	return hc
+}
+
+func (hc *HcHttpClient) WithHttpConfig(httpConfig config.HttpConfig) *HcHttpClient {
+	hc.httpConfig = httpConfig
 	return hc
 }
 
@@ -154,8 +162,8 @@ func (hc *HcHttpClient) buildRequest(req interface{}, reqDef *def.HttpRequestDef
 		WithMethod(reqDef.Method).
 		WithPath(reqDef.Path)
 
-	if reqDef.ContentType != "" {
-		builder.AddHeaderParam(contentType, reqDef.ContentType)
+	if pq, ok := req.(progress.Request); ok {
+		builder.WithProgressListener(pq.GetProgressListener()).WithProgressInterval(pq.GetProgressInterval())
 	}
 
 	uaValue := "g42cloud-usdk-go/3.0"
@@ -188,7 +196,7 @@ func (hc *HcHttpClient) buildRequest(req interface{}, reqDef *def.HttpRequestDef
 
 func (hc *HcHttpClient) fillParamsFromReq(req interface{}, t reflect.Type, reqDef *def.HttpRequestDef,
 	attrMaps map[string]string, builder *request.HttpRequestBuilder) (*request.HttpRequestBuilder, error) {
-
+	hasBody := false
 	for _, fieldDef := range reqDef.RequestFields {
 		value, err := hc.getFieldValueByName(fieldDef.Name, attrMaps, req)
 		if err != nil {
@@ -217,9 +225,14 @@ func (hc *HcHttpClient) fillParamsFromReq(req interface{}, t reflect.Type, reqDe
 			} else {
 				builder.WithBody("", value.Interface())
 			}
+			hasBody = true
 		case def.Form:
 			builder.AddFormParam(fieldDef.JsonTag, value.Interface().(def.FormData))
 		}
+	}
+
+	if reqDef.ContentType != "" && !(hc.httpConfig.IgnoreContentTypeForGetRequest && reqDef.Method == "GET" && !hasBody) {
+		builder.AddHeaderParam(contentType, reqDef.ContentType)
 	}
 
 	return builder, nil

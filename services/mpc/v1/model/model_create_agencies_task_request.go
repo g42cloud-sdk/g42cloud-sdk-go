@@ -7,12 +7,6 @@ import (
 )
 
 type CreateAgenciesTaskRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	Body *AgenciesTaskReq `json:"body,omitempty"`
 }
 

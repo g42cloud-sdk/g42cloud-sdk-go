@@ -7,12 +7,6 @@ import (
 )
 
 type ListWatermarkTemplateRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	TemplateId *[]int32 `json:"template_id,omitempty"`
 
 	Page *int32 `json:"page,omitempty"`

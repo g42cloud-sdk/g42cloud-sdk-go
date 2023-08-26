@@ -9,12 +9,6 @@ import (
 type ListTranscodingTaskRequest struct {
 	XLanguage *string `json:"x-language,omitempty"`
 
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	TaskId *[]int64 `json:"task_id,omitempty"`
 
 	Status *string `json:"status,omitempty"`

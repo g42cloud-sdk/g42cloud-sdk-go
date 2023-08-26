@@ -7,12 +7,6 @@ import (
 )
 
 type DeleteThumbnailsTaskRequest struct {
-	Authorization *string `json:"Authorization,omitempty"`
-
-	XProjectId *string `json:"X-Project_Id,omitempty"`
-
-	XSdkDate *string `json:"X-Sdk-Date,omitempty"`
-
 	TaskId string `json:"task_id"`
 }
 

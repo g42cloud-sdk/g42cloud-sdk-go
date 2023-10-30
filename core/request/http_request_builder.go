@@ -20,6 +20,7 @@
 package request
 
 import (
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth/signer/algorithm"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/def"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/progress"
 	"reflect"
@@ -56,6 +57,11 @@ func (builder *HttpRequestBuilder) WithPath(path string) *HttpRequestBuilder {
 
 func (builder *HttpRequestBuilder) WithMethod(method string) *HttpRequestBuilder {
 	builder.httpRequest.method = method
+	return builder
+}
+
+func (builder *HttpRequestBuilder) WithSigningAlgorithm(signingAlgorithm algorithm.SigningAlgorithm) *HttpRequestBuilder {
+	builder.httpRequest.signingAlgorithm = signingAlgorithm
 	return builder
 }
 

@@ -9,7 +9,7 @@ import (
 type ServerTag struct {
 	Key string `json:"key"`
 
-	Value string `json:"value"`
+	Value *string `json:"value,omitempty"`
 }
 
 func (o ServerTag) String() string {

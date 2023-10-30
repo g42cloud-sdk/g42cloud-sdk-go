@@ -1,4 +1,4 @@
-// Copyright 2022 G42 Technologies Co.,Ltd.
+// Copyright 2023 G42 Technologies Co.,Ltd.
 //
 // Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
@@ -17,32 +17,28 @@
 // specific language governing permissions and limitations
 // under the License.
 
-package region
+package signer
 
-import (
-	"github.com/stretchr/testify/assert"
-	"testing"
+var (
+	sha256HasherInst     sha256Hasher
+	sm3HasherInst        sm3Hasher
+	signerInst           Signer
+	derivedSignerInst    DerivedSigner
+	sm3SignerInst        SM3Signer
+	p256sha256SignerInst P256SHA256Signer
+	sm2sm3SignerInst     SM2SM3Signer
 )
 
-func TestProviderChain_GetRegion(t *testing.T) {
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("not-exist-1")
-	assert.Nil(t, reg)
+func init() {
+	sha256HasherInst = sha256Hasher{}
+	sm3HasherInst = sm3Hasher{}
+	signerInst = Signer{}
+	derivedSignerInst = DerivedSigner{}
+	sm3SignerInst = SM3Signer{}
+	p256sha256SignerInst = P256SHA256Signer{}
+	sm2sm3SignerInst = SM2SM3Signer{}
 }
 
-func TestProviderChain_GetRegion2(t *testing.T) {
-	chain := DefaultProviderChain("NotExist")
-	reg := chain.GetRegion("region-id-1")
-	assert.Nil(t, reg)
-}
-
-func TestProviderChain_GetRegion3(t *testing.T) {
-	err := setRegionsFileEnv()
-	assert.Nil(t, err)
-
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("region-id-1")
-	assert.NotNil(t, reg)
-	assert.Equal(t, "region-id-1", reg.Id)
-	assert.Equal(t, []string{"https://service1.region-id-1.com"}, reg.Endpoints)
+func GetDerivedSigner() DerivedSigner {
+	return derivedSignerInst
 }

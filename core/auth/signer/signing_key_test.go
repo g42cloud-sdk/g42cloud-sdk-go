@@ -1,4 +1,4 @@
-// Copyright 2022 G42 Technologies Co.,Ltd.
+// Copyright 2023 G42 Technologies Co.,Ltd.
 //
 // Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
@@ -17,32 +17,33 @@
 // specific language governing permissions and limitations
 // under the License.
 
-package region
+package signer
 
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-func TestProviderChain_GetRegion(t *testing.T) {
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("not-exist-1")
-	assert.Nil(t, reg)
-}
-
-func TestProviderChain_GetRegion2(t *testing.T) {
-	chain := DefaultProviderChain("NotExist")
-	reg := chain.GetRegion("region-id-1")
-	assert.Nil(t, reg)
-}
-
-func TestProviderChain_GetRegion3(t *testing.T) {
-	err := setRegionsFileEnv()
+func TestP256SigningKey_Sign(t *testing.T) {
+	data := []byte("HelloWorld")
+	signingKey, err := p256sha256SignerInst.GetSigningKey(ak, sk)
 	assert.Nil(t, err)
+	_, ok := signingKey.(P256SigningKey)
+	assert.True(t, ok)
 
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("region-id-1")
-	assert.NotNil(t, reg)
-	assert.Equal(t, "region-id-1", reg.Id)
-	assert.Equal(t, []string{"https://service1.region-id-1.com"}, reg.Endpoints)
+	sig, err := signingKey.Sign(data)
+	assert.Nil(t, err)
+	assert.True(t, signingKey.Verify(sig, data))
+}
+
+func TestSM2SigningKey_Sign(t *testing.T) {
+	data := []byte("HelloWorld")
+	signingKey, err := sm2sm3SignerInst.GetSigningKey(ak, sk)
+	assert.Nil(t, err)
+	_, ok := signingKey.(SM2SigningKey)
+	assert.True(t, ok)
+
+	sig, err := signingKey.Sign(data)
+	assert.Nil(t, err)
+	assert.True(t, signingKey.Verify(sig, data))
 }

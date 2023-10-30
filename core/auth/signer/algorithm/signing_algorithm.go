@@ -1,4 +1,4 @@
-// Copyright 2022 G42 Technologies Co.,Ltd.
+// Copyright 2023 G42 Technologies Co.,Ltd.
 //
 // Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
@@ -17,32 +17,17 @@
 // specific language governing permissions and limitations
 // under the License.
 
-package region
+package algorithm
 
-import (
-	"github.com/stretchr/testify/assert"
-	"testing"
+type SigningAlgorithm string
+
+const (
+	HmacSHA256      = "HmacSHA256"
+	HmacSM3         = "HmacSM3"
+	EcdsaP256SHA256 = "EcdsaP256SHA256"
+	SM2SM3          = "SM2SM3"
 )
 
-func TestProviderChain_GetRegion(t *testing.T) {
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("not-exist-1")
-	assert.Nil(t, reg)
-}
-
-func TestProviderChain_GetRegion2(t *testing.T) {
-	chain := DefaultProviderChain("NotExist")
-	reg := chain.GetRegion("region-id-1")
-	assert.Nil(t, reg)
-}
-
-func TestProviderChain_GetRegion3(t *testing.T) {
-	err := setRegionsFileEnv()
-	assert.Nil(t, err)
-
-	chain := DefaultProviderChain("Service1")
-	reg := chain.GetRegion("region-id-1")
-	assert.NotNil(t, reg)
-	assert.Equal(t, "region-id-1", reg.Id)
-	assert.Equal(t, []string{"https://service1.region-id-1.com"}, reg.Endpoints)
+func GetDefaultSigningAlgorithm() SigningAlgorithm {
+	return HmacSHA256
 }

@@ -25,6 +25,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/auth/signer/algorithm"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/converter"
 	"github.com/g42cloud-sdk/g42cloud-sdk-go/core/progress"
 	"go.mongodb.org/mongo-driver/bson"
@@ -53,6 +54,7 @@ type DefaultHttpRequest struct {
 	autoFilledPathParams map[string]string
 	progressListener     progress.Listener
 	progressInterval     int64
+	signingAlgorithm     algorithm.SigningAlgorithm
 }
 
 func (httpRequest *DefaultHttpRequest) fillParamsInPath() *DefaultHttpRequest {
@@ -76,6 +78,10 @@ func (httpRequest *DefaultHttpRequest) GetEndpoint() string {
 
 func (httpRequest *DefaultHttpRequest) GetPath() string {
 	return httpRequest.path
+}
+
+func (httpRequest *DefaultHttpRequest) GetSigningAlgorithm() algorithm.SigningAlgorithm {
+	return httpRequest.signingAlgorithm
 }
 
 func (httpRequest *DefaultHttpRequest) GetMethod() string {
